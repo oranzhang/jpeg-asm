@@ -39,7 +39,7 @@ protected:
       ofs.write(reinterpret_cast<char*>(buffer), buffer_size);
       ofs.close();
     } else {
-      throw std::runtime_error("Cannot open the file for writing");
+      throw std::runtime_error("Cannot open the file for writing: " + filepath);
     }
   }
 
@@ -56,7 +56,7 @@ protected:
       ifs.read(reinterpret_cast<char*>(&result[0]), length);
       ifs.close();
     } else {
-      throw std::runtime_error("Cannot open the file for reading");
+      throw std::runtime_error("Cannot open the file for reading: " + filepath);
     }
     return result;
   }
